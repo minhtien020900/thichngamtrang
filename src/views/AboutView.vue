@@ -1,76 +1,156 @@
+<!--<template>-->
+<!--  <div class="about">-->
+<!--    <v-card-->
+<!--        class="mx-auto"-->
+<!--        max-width="500"-->
+<!--    >-->
+<!--&lt;!&ndash;       <v-system-bar&ndash;&gt;-->
+<!--&lt;!&ndash;        color="indigo darken-2"&ndash;&gt;-->
+<!--&lt;!&ndash;        dark&ndash;&gt;-->
+<!--&lt;!&ndash;      >&ndash;&gt;-->
+<!--&lt;!&ndash;        <v-spacer></v-spacer>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-icon icon="mdi-window-minimize"></v-icon>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-icon icon="mdi-window-maximize"></v-icon>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-icon icon="mdi-close"></v-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;      </v-system-bar>&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <v-toolbar&ndash;&gt;-->
+<!--&lt;!&ndash;        color="indigo"&ndash;&gt;-->
+<!--&lt;!&ndash;        dark&ndash;&gt;-->
+<!--&lt;!&ndash;      >&ndash;&gt;-->
+<!--&lt;!&ndash;        <v-app-bar-nav-icon></v-app-bar-nav-icon>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-toolbar-title>Discover</v-toolbar-title>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-spacer></v-spacer>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <v-btn icon="mdi-magnify"></v-btn>&ndash;&gt;-->
+<!--&lt;!&ndash;      </v-toolbar>&ndash;&gt;-->
+
+<!--      <v-container fluid>-->
+<!--        <v-row dense>-->
+<!--          <v-col-->
+<!--              v-for="card in cards"-->
+<!--              :key="card.title"-->
+<!--              :cols="card.flex"-->
+<!--          >-->
+<!--            <v-card>-->
+<!--              <v-img-->
+<!--                  :src="card.src"-->
+<!--                  class="align-end"-->
+<!--                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"-->
+<!--                  height="200px"-->
+<!--                  width="auto"-->
+<!--                  cover-->
+<!--              >-->
+<!--&lt;!&ndash;                <v-card-title class="text-white" v-text="card.title"></v-card-title>&ndash;&gt;-->
+<!--              </v-img>-->
+
+<!--&lt;!&ndash;              <v-card-actions>&ndash;&gt;-->
+<!--&lt;!&ndash;                <v-spacer></v-spacer>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-bookmark"></v-btn>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>&ndash;&gt;-->
+<!--&lt;!&ndash;              </v-card-actions>&ndash;&gt;-->
+<!--            </v-card>-->
+<!--          </v-col>-->
+<!--        </v-row>-->
+<!--      </v-container>-->
+<!--    </v-card>-->
+<!--    <v-row>-->
+<!--      <template v-for="(image,imgIdx) in imageLayout" :key="imgIdx">-->
+<!--        <v-col :cols="image.cols">-->
+<!--          <v-img-->
+<!--              :src="`https://picsum.photos/500/300?image=${image.cols * 20}`"-->
+<!--              cover-->
+<!--              height="100%"-->
+<!--          ></v-img>-->
+<!--        </v-col>-->
+
+<!--        <v-col v-if="image.children" cols="6" class="d-flex flex-column">-->
+<!--          <v-row>-->
+<!--            <v-col v-for="(children,childIdx) in image.children" :key="childIdx" :cols="children.cols">-->
+<!--              <v-img-->
+<!--                  :src="`https://picsum.photos/500/300?image=${children.cols + childIdx}`"-->
+<!--                  cover-->
+<!--                  height="100%"-->
+<!--              ></v-img>-->
+<!--            </v-col>-->
+<!--          </v-row>-->
+<!--        </v-col>-->
+<!--      </template>-->
+<!--    </v-row>-->
+<!--  </div>-->
+<!--</template>-->
 <template>
-  <div class="about">
-    <v-card
-        class="mx-auto"
-        max-width="500"
+<v-container>
+  <img src=" @/src/assets/think.png">
+  <v-img
+      src="@/src/assets/think.png"
+      height="125"
+      class="bg-grey-lighten-2"
+  ></v-img>
+
+  <v-row>
+    <v-col
+        v-for="n in 9"
+        :key="n"
+        class="d-flex child-flex"
+        cols="4"
     >
-<!--       <v-system-bar-->
-<!--        color="indigo darken-2"-->
-<!--        dark-->
+<!--      <v-img-->
+<!--          :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"-->
+<!--          :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"-->
+<!--          aspect-ratio="1"-->
+<!--          cover-->
+<!--          class="bg-grey-lighten-2"-->
 <!--      >-->
-<!--        <v-spacer></v-spacer>-->
-
-<!--        <v-icon icon="mdi-window-minimize"></v-icon>-->
-
-<!--        <v-icon icon="mdi-window-maximize"></v-icon>-->
-
-<!--        <v-icon icon="mdi-close"></v-icon>-->
-<!--      </v-system-bar>-->
-
-<!--      <v-toolbar-->
-<!--        color="indigo"-->
-<!--        dark-->
-<!--      >-->
-<!--        <v-app-bar-nav-icon></v-app-bar-nav-icon>-->
-
-<!--        <v-toolbar-title>Discover</v-toolbar-title>-->
-
-<!--        <v-spacer></v-spacer>-->
-
-<!--        <v-btn icon="mdi-magnify"></v-btn>-->
-<!--      </v-toolbar>-->
-
-      <v-container fluid>
-        <v-row dense>
-          <v-col
-              v-for="card in cards"
-              :key="card.title"
-              :cols="card.flex"
+<!--      <img src="" alt="">-->
+            <v-img
+          src="@/src/assets/think.png"
+          :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+          aspect-ratio="1"
+          cover
+          class="bg-grey-lighten-2"
+      >
+        <template v-slot:placeholder>
+          <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
           >
-            <v-card>
-              <v-img
-                  :src="card.src"
-                  class="align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                  cover
-              >
-                <v-card-title class="text-white" v-text="card.title"></v-card-title>
-              </v-img>
+            <v-progress-circular
+                indeterminate
+                color="grey-lighten-5"
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
+    </v-col>
+  </v-row>
 
-              <v-card-actions>
-                <v-spacer></v-spacer>
-
-                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>
-
-                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-bookmark"></v-btn>
-
-                <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
-  </div>
+</v-container>
 </template>
 <script>
 export default {
   data: () => ({
-    cards: [
-      { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-      { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+    imageLayout: [
+      { cols: 4 },
+      {
+        cols: 8,
+        children: [{ cols: 12 }, { cols: 12 }],
+      },
+      { cols: 6 },
+      { cols: 3 },
+      { cols: 9 },
+      { cols: 4 },
+      { cols: 8 },
     ],
   }),
 }
